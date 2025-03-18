@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHANDRU M | Portfolio</title>
+    <style>
+        /* General Styles */
+        @keyframes colorChange {
+  0% { background-color: rgb(253, 241, 135); }
+  25% { background-color: rgb(134, 230, 204); }
+  50% { background-color: rgb(144, 227, 144); }
+  75% { background-color: rgb(129, 192, 226); }
+  100% { background-color: rgb(229, 136, 187); }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-size: 20px;
+  animation: colorChange 5s infinite;
+}
+
+    
+
+
+        .dark-mode {
+            background-color: #1F1F1F;
+            color: rgb(251, 253, 251);
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 15px 20px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode .navbar {
+            background: #cfe0ea;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            color: #6C63FF;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+        }
+
+        .dark-mode .nav-links a {
+            color: white;
+        }
+
+        .nav-links a:hover {
+            color: #6C63FF;
+        }
+
+        #dark-mode-toggle {
+            background: #6C63FF;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #dark-mode-toggle:hover {
+            background: #4a47d1;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .profile-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeInScale 1s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+        .highlight {
+            color: #6436ee;
+        }
+
+        /* Sections */
+        .container {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        /* about Grid */
+.about-grid {
+    display: grid;
+    gap: 20px;
+    max-width: 5000px;
+    margin: auto;
+}
+
+.about-box {
+    background: #ededef;
+    padding: 20px;
+    border-radius: 48px;
+}
+
+.dark-mode .about-box {
+    background: #fbf2f2;
+}
+
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 5000px;
+            margin: auto;
+        }
+
+        .skill-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .dark-mode .skill-box {
+            background: #444;
+        }
+        .skill-container {
+            width: 80%;
+            margin: 20px auto;
+            text-align: left;
+        }
+        .skill {
+            margin-bottom: 20px;
+        }
+        .skill-name {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .skill-bar {
+            width: 100%;
+            background-color: #e7dede;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 20px;
+        }
+        .skill-fill {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #61eed2, #21b93d);
+            border-radius: 10px;
+            transition: width 2s ease-in-out;
+        }
+
+
+        /* Project Grid */
+        .project-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .project-card {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .dark-mode .project-card {
+            background: #444;
+        }
+         /*Education Grid */
+        
+        .Education-grid {
+            display: grid;
+            grid-template-columns:(2, 1fr);
+            gap: 20px;
+            max-width: 5000px;
+            margin: auto;
+        }
+
+        .Education-box {
+            background: #ededef;
+            padding: 20px;
+            border-radius: 25px;
+        }
+
+        .dark-mode .Education-box {
+            background: #fbf2f2;
+        }
+
+        /* Job Experience */
+.job-experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 20px;
+    max-width: 1200px; /* More reasonable max-width */
+    margin: auto;
+}
+
+.job-experience-box {
+    background: #ededef;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+/* Dark Mode */
+.dark-mode .job-experience-box {
+    background: #2c2c2c;
+    color: #fff;
+}
+
+
+       /* Contact */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Corrected */
+    gap: 20px;
+    max-width: 5000px;
+    margin: auto;
+}
+
+.contact-box {
+    background: #ededef;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.dark-mode .contact-box {
+    background: #fbf2f2;
+}
+
+      
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            margin-top: 10%;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+        }
+
+        .social-icons a:hover {
+            color: #f5089e;
+        }
+
+        /* Center the content */
+
+
+
+/* Button styles */
+.download-btn {
+    background-color: #007bff;
+    color: rgb(238, 41, 2);
+    border: none;
+    padding: 16px 20px;
+    font-size: 25px;
+    width: 20;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Hide button in print view */
+@media print {
+    .download-btn {
+        display: none;
+    }
+}
+       
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <h1 class="logo">✭ CHANDRU M ✭</h1>
+    
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="# Education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </nav>
+            </ul>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="king.jpg" alt="Profile Picture" class="profile-pic">
+        <h2>Hi, I'm <span class="highlight">✭ CHANDRU M ✭</span></h2>
+        <p>BS.C (COMPUTER SCIENCE)</p>
+    </section>
+    
+
+
+    <!-- About Section -->
+<section id="about" class="container">
+    <h2>About</h2>
+    <div class="about-grid">
+        <div class="about-box">
+            <p>welcom to my portfolio website for "Chandru M" with various sections like About, Skills, Projects, Education, Experience, and Contact. Your design includes smooth animations, dark mode support, a skill progress bar, and social media links. </p>
+        </div>
+       
+</section>
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-box">HTML</div>
+            <div class="skill-box">CSS</div>
+            <div class="skill-box">JavaScript</div>
+            <div class="skill-box"> python Basics</div>
+            <div class="skill-box">c & c++ </div>
+            <div class="skill-box">editing</div>
+            <div class="skill-box">ui & ux for Beginners</div>
+            <div class="skill-box">VFX (Visual Effects)</div>
+        </div>
+    </section>
+    
+    <h2>My Skills</h2>
+    <div class="skill-container">
+        <div class="skill">
+            <div class="skill-name">HTML</div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+        </div>
+        <div class="skill">
+            <div class="skill-name">CSS</div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 69%;"></div></div>
+        </div>
+        <div class="skill">
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 65%;"></div></div>
+        </div>
+        <div class="skill">
+            <div class="skill-name">Python Basics</div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 76%;"></div></div>
+        </div>
+        <div class="skill">
+            <div class="skill-name">C & C++</div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 70%;"></div></div>
+        </div>
+        <div class="skill">
+            <div class="skill-name">UI & UX for Beginners</div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 75%;"></div></div>
+        </div>
+        <div class="skill">
+            <div class="skill-name">Editing</div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+        </div>
+        <div class="skill">
+            <div class="skill-name">VFX (Visual Effects)</div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 65%;"></div></div>
+        </div>
+    </div>
+    
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h1></h>Portfolio</h1>
+                <p>web page </p>
+            </div>
+            <div class="project-card">
+                <h3>VFX</h3>
+                <p> Visual Effects </p>
+            </div>
+    </section>
+     <!--  Education -->
+     <section id=" Education" class="container">
+        <h2> Education</h2>
+        <div class=" Education-grid">
+        
+            <div class=" Education-box">BS.C (COMPUTER SCIENCE)</div>
+            <div class=" Education-box">[BARATHIAR  UNIVERSITY]</div>
+            <div class=" Education-box">[2023 -2026]</div>
+        
+        
+        </div>
+    </section>
+
+   
+<!-- Job Experience Section -->
+<section id="job-experience" class="container">
+    <h2>Job Experience</h2>
+    <div class="job-experience-grid">
+        <div class="job-experience-box">
+            Salesman
+        </div>
+    </div>
+</section>
+
+    
+
+    <!-- Contact Section -->
+<section id="contact" class="container">
+    <h2>My Contact</h2>
+    <div class="contact-grid">
+        <div class="contact-box">
+            📞 +91 63833 20576
+        </div>
+        <div class="contact-box">
+            ✉ mchandru1342006@gmail.com
+        </div>
+    </div>
+</section>
+
+   
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy;2025 | CHANDRU </p>
+        <hr> social media  <hr>
+        <div class="social-icons">
+
+            <a href="https://www.instagram.com/love_boy.3456" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="text-gray-500 hover:text-pink-500 transition" viewBox="0 0 24 24">
+                    <path d="M7.75 2h8.5A5.26 5.26 0 0 1 22 7.25v8.5A5.26 5.26 0 0 1 16.25 21h-8.5A5.26 5.26 0 0 1 2 15.75v-8.5A5.26 5.26 0 0 1 7.75 2Zm0-2A7.26 7.26 0 0 0 0 7.25v8.5A7.26 7.26 0 0 0 7.75 23h8.5A7.26 7.26 0 0 0 24 15.75v-8.5A7.26 7.26 0 0 0 16.25 0h-8.5ZM12 6.5a5.5 5.5 0 1 1-5.5 5.5A5.5 5.5 0 0 1 12 6.5Zm0 9a3 3 0 1 0-3-3 3 3 0 0 0 3 3Zm6.5-8.75A1.25 1.25 0 1 0 17.25 5.5 1.25 1.25 0 0 0 18.5 6.75Z"/>
+                </svg>
+            </a>
+            
+            
+                    <a href="https://www.facebook.com/love_boy.3456" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="text-gray-500 hover:text-blue-600 transition" viewBox="0 0 24 24">
+                            <path d="M22 12.07C22 5.72 17.3 1 12 1S2 5.72 2 12.07c0 5.51 4.01 10.07 9.26 10.93V15.6H8.27v-3.54h3V9.85c0-2.92 1.71-4.54 4.36-4.54 1.27 0 2.59.23 2.59.23v2.86h-1.46c-1.43 0-1.88.89-1.88 1.8v2.16h3.22l-.52 3.54h-2.7v7.4C18 22.14 22 17.58 22 12.07Z"/>
+                        </svg>
+                    </a> 
+                    <a href="https://youtube.com/@mchandrumchandru-nt1lr?si=LkrfAtVBlZCFJiTr" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="text-gray-500 hover:text-red-600 transition" viewBox="0 0 24 24">
+                            <path d="M21.8 8.001c-.24-1.34-.94-2.4-1.88-2.72-1.66-.58-8.92-.58-8.92-.58s-7.26 0-8.92.58c-.94.32-1.64 1.38-1.88 2.72-.46 2.38-.46 7.34-.46 7.34s0 4.96.46 7.34c.24 1.34.94 2.4 1.88 2.72 1.66.58 8.92.58 8.92.58s7.26 0 8.92-.58c.94-.32 1.64-1.38 1.88-2.72.46-2.38.46-7.34.46-7.34s0-4.96-.46-7.34zm-12.8 8.99v-7l6 3.5-6 3.5z"/>
+                        </svg>
+                    </a>
+                    
+        </div>
+
+    </footer>
+
+    <button onclick="printPDF()" class="download-btn">Download as PDF</button>
+    </div>
+   
+    <script>
+        function printPDF() {
+            window.print();
+        }
+    </script>
+
+   </body>
+</html>
+
